@@ -12,6 +12,7 @@ add_executable(snake
     src/Renderer.cpp
     src/Food.cpp
     src/Game.cpp
+    src/Input.cpp
 )
 
 target_include_directories(snake PRIVATE include)
