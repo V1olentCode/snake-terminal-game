@@ -106,9 +106,19 @@ void Game::run() {
                 }
             }
         }
-
-        snake.move();
-
+        Point next=snake.nextHead();
+        bool eating=(next==food.getPosition());
+        if(eating) {
+            snake.grow();
+            score++;
+            if(moveDelay>100) {
+                moveDelay-=20;
+            }
+            food.setPosition(randomFoodPosition());
+        }
+        else{
+            snake.move();
+        }
         if (isWallCollision()) {
             dead=true;
             running = false;
@@ -116,14 +126,6 @@ void Game::run() {
         else if (isSelfCollision()) {
             dead=true;
             running = false;
-        }
-        else if (isFoodEaten()) {
-            snake.grow();
-            score++;
-            if(moveDelay>100) {
-                moveDelay-=20;
-            }
-            food.setPosition(randomFoodPosition());
         }
 
         clearScreen();

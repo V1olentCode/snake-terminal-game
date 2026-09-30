@@ -15,7 +15,6 @@ private:
     std::deque<Point> body;
     Direction direction;
     Direction nextDirection;
-    Point nextHead() const;
 public:
     Snake();
     void move();
@@ -24,4 +23,5 @@ public:
 
     Point getHead() const;
     const std::deque<Point>& getBody() const;
+    Point nextHead() const;
 };
