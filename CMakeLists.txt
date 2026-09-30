@@ -7,4 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(snake
     src/main.cpp
+    src/Snake.cpp
+    src/Board.cpp
+    src/Renderer.cpp
+    src/Food.cpp
+    src/Game.cpp
 )
+
+target_include_directories(snake PRIVATE include)
