@@ -1,6 +1,6 @@
 # Terminal Snake Game
 
-A terminal-based Snake game written in C++ using object-oriented programming and CMake.
+A terminal-based Snake game written in C++ using object-oriented programming and CMake. [Windows]
 
 ## Features
 
