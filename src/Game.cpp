@@ -81,31 +81,15 @@ void Game::clearScreen() const {
 }
 
 void Game::run() {
+    Direction direction = Direction::Right;
     while (running) {
-
-        if (_kbhit()) {
-            int key = _getch();
-
-            if (key == 'q' || key == 'Q') {
-                running = false;
-            }
-            else if (key == 224) {
-                key = _getch();
-
-                if (key == 72) {
-                    snake.changeDirection(Direction::Up);
-                }
-                else if (key == 80) {
-                    snake.changeDirection(Direction::Down);
-                }
-                else if (key == 75) {
-                    snake.changeDirection(Direction::Left);
-                }
-                else if (key == 77) {
-                    snake.changeDirection(Direction::Right);
-                }
-            }
+        if (!input.process(direction)) {
+            running = false;
+            break;
         }
+
+        snake.changeDirection(direction);
+        
         Point next=snake.nextHead();
         bool eating=(next==food.getPosition());
         if(eating) {
